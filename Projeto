@@ -1,32 +1,65 @@
-# Entradas
 
-# Ganhos fixos
+    # Ganhos fixos
+ganhos_fixos = [0,0,0,0,0,0]
+    # Ganhos mutáveis
+ganhos_mutaveis = [0,0,0,0,0,0]
+    # Despesas fixas
+despesas_fixas = [0,0,0,0,0,0]
+    # Despesas mutáveis
+despesas_mutaveis = [0,0,0,0,0,0]
+    # Aporte aposentadoria
+aportes_aposentadoria = [0,0,0,0,0,0]
+    # Aporte investimento
+aportes_investimentos = [0,0,0,0,0,0]
 
-# Ganhos mutáveis
+### Menu de escolha inicial
 
-# Despesas fixas
+while True:
+    print ("O que você deseja fazer?!")
+    print ("---" * 25) 
+    print (" 1 - Adicionar Balanço")
+    print (" 2 - Alterar Balanço")
+    print (" 3 - Exibir Balanço Diário")   
+    print (" 4 - Exibir Balanço Semanal")
+    print (" 5 - Exibir Balanço Mensal")
+    print (" 6 - Encerrar")
+    print ("---" * 25) 
+    escolha_01 = str(input("Digite o nome ou número corresponde a opção:"))
 
-# Despesas mutáveis
+    if escolha_01 == "1" or escolha_01 == "Adicionar Balanço":
+            
+        ### Entradas
 
-# Aporte aposentadoria
+            while True:
+                print ("Você deseja realizar a entrada de dados no gerenciador de finanças? ")
+                escolha_02 = str(input("[S/N]"))
+                if escolha_02 == "N":
+                    break
+                elif escolha_02 == "S":
+                     
+                    ganhos_fixos = int(input("Ganhos fixos"))
+                    ganhos_mutaveis = int(input("Ganhos mutáveis"))
+                    despesas_fixas = int(input("Despesas fixas"))
+                    despesas_mutaveis = int(input("Depesas mutáveis"))
 
-# Aporte investimento
+                    aportes_aposentadoria = int(input("Aporte aposentadoria"))
+                    aportes_investimentos = int(input("Aporte investimento"))
+                else:
+                    print ("Opção Inválida")
 
-#
-# Estatísticas
-#
-
-
-
-# Balanço financeiro semanal
-
-
-
-# Balanço financeiro mensal
-
-
-
-
-
-
-
+    elif escolha_01 == "2" or escolha_01 == "Alterar Balanço":
+        print ("1")
+    elif escolha_01 == "3" or escolha_01 == "Exibir Balanço Diário":
+        print ("2")
+    elif escolha_01 == "4" or escolha_01 == "Exibir Balanço Semanal":
+        print ("3")
+    elif escolha_01 == "5" or escolha_01 == "Exibir Balançi Mensal":
+        print ("4")
+    elif escolha_01 == "6" or escolha_01 == "Encerrar":
+        print ("Encerrando o programa!")
+        break
+    else:
+        print ("Opção Inválida")
+    ### Estatísticas
+    # Balanço financeiro semanal
+    # Balanço financeiro mensal
