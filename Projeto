@@ -1,16 +1,16 @@
 
     # Ganhos fixos
-ganhos_fixos = [0,0,0,0,0,0]
+ganhos_fixos = [0] * 30
     # Ganhos mutáveis
-ganhos_mutaveis = [0,0,0,0,0,0]
+ganhos_mutaveis = [0] * 30
     # Despesas fixas
-despesas_fixas = [0,0,0,0,0,0]
+despesas_fixas = [0] * 30
     # Despesas mutáveis
-despesas_mutaveis = [0,0,0,0,0,0]
+despesas_mutaveis = [0] * 30 
     # Aporte aposentadoria
-aportes_aposentadoria = [0,0,0,0,0,0]
+aportes_aposentadoria = [0] * 30
     # Aporte investimento
-aportes_investimentos = [0,0,0,0,0,0]
+aportes_investimentos = [0] * 30
 
 ### Menu de escolha inicial
 
@@ -31,19 +31,46 @@ while True:
         ### Entradas
 
             while True:
-                print ("Você deseja realizar a entrada de dados no gerenciador de finanças? ")
+                print ("Deseja realizar a entrada de dados no gerenciador de finanças? ")
                 escolha_02 = str(input("[S/N]"))
                 if escolha_02 == "N":
                     break
                 elif escolha_02 == "S":
-                     
-                    ganhos_fixos = int(input("Ganhos fixos"))
-                    ganhos_mutaveis = int(input("Ganhos mutáveis"))
-                    despesas_fixas = int(input("Despesas fixas"))
-                    despesas_mutaveis = int(input("Depesas mutáveis"))
+                    
+                    print ("---" * 25)
+                    dia = int(input("Digite o dia do mês (1 até 30): "))
+                    print ("---" * 25)
 
-                    aportes_aposentadoria = int(input("Aporte aposentadoria"))
-                    aportes_investimentos = int(input("Aporte investimento"))
+                    if dia >= 1 and dia <= 30:
+                        dia_local = dia - 1
+                        print ("Adicionar ganhos as finanças. Digite 0 para finalizar!")
+
+                        while True:
+                            ganho = int(input("Digite o valor do ganho/s : R$ "))
+                            if ganho == 0:
+                                break                  
+                            ganhos_fixos[dia_local] += ganho
+                           
+
+                        while True:
+                            despesa = int(input("Digite o valor da despesa/s: R$ "))
+                            if despesa == 0:
+                                break
+                            despesas_fixas[dia_local] += despesa
+
+                        aportes_aposentadoria[dia] = int(input("Digite o valor do aporte em aposentadoria: R$ "))
+                        aportes_investimentos[dia] = int(input("Digite o valor do aporte em investimento: R$ "))
+                        while True:
+                            print ("Deseja exibir o Balanço Diário?")
+                            escolha_03 = str(input("[S/N]"))
+                            if escolha_03 == "N":
+                                break
+                            elif escolha_03 == "S":
+                                print (f"O saldo diário é R$: {(ganhos_fixos[dia_local] - despesas_fixas[dia_local])}, foi realizado aporte em aposentadoria no valor de: R$ {aportes_aposentadoria[dia]}, aporte em investimento no valor de: R$ {aportes_investimentos[dia]}")
+                            else:
+                                print ("Opção Inválida")
+                    else:
+                        print ("Opção Inválida")
                 else:
                     print ("Opção Inválida")
 
