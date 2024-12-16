@@ -41,7 +41,7 @@ while True:
                     dia = int(input("Digite o dia do mês (1 até 30): "))
                     print ("---" * 25)
 
-                    if dia >= 1 and dia <= 30:
+                    if dia > 0 and dia <= 30:
                         dia_local = dia - 1
                         print ("Adicionar ganhos as finanças. Digite 0 para finalizar!")
 
@@ -58,15 +58,21 @@ while True:
                                 break
                             despesas_fixas[dia_local] += despesa
 
-                        aportes_aposentadoria[dia] = int(input("Digite o valor do aporte em aposentadoria: R$ "))
-                        aportes_investimentos[dia] = int(input("Digite o valor do aporte em investimento: R$ "))
+                    
+                        aposentadoria = int(input("Digite o valor do aporte em aposentadoria: R$ "))
+                        aportes_aposentadoria[dia_local] += aposentadoria
+
+                        investimento = int(input("Digite o valor do aporte em investimento: R$ "))
+                        aportes_investimentos[dia_local] += investimento
+
+    
                         while True:
                             print ("Deseja exibir o Balanço Diário?")
                             escolha_03 = str(input("[S/N]"))
                             if escolha_03 == "N":
                                 break
                             elif escolha_03 == "S":
-                                print (f"O saldo diário é R$: {(ganhos_fixos[dia_local] - despesas_fixas[dia_local])}, foi realizado aporte em aposentadoria no valor de: R$ {aportes_aposentadoria[dia]}, aporte em investimento no valor de: R$ {aportes_investimentos[dia]}")
+                                print (f"O saldo diário é R$: {(ganhos_fixos[dia_local] - despesas_fixas[dia_local])}, foi realizado aporte em aposentadoria no valor de: R$ {aportes_aposentadoria[dia_local]}, aporte em investimento no valor de: R$ {aportes_investimentos[dia_local]}")
                             else:
                                 print ("Opção Inválida")
                     else:
@@ -75,9 +81,40 @@ while True:
                     print ("Opção Inválida")
 
     elif escolha_01 == "2" or escolha_01 == "Alterar Balanço":
-        print ("1")
+        print ("---" * 25)
+        dia = int(input("Digite o dia do mês que deseja alterar (1 até 30): "))
+        print ("---" * 25)
+
+        dia_local = dia - 1 
+
+        novo_ganho = int(input("Digite o novo valor do ganho/s : R$ "))
+        ganhos_fixos[dia_local] = novo_ganho
+                           
+        nova_despesa = int(input("Digite o novo valor da despesa/s: R$ "))
+        despesas_fixas[dia_local] = nova_despesa
+
+                    
+        nova_aposentadoria = int(input("Digite o novo valor do aporte em aposentadoria: R$ "))
+        aportes_aposentadoria[dia_local] = nova_aposentadoria
+
+        novo_investimento = int(input("Digite o novo valor do aporte em investimento: R$ "))
+        aportes_investimentos[dia_local] = novo_investimento
+        print (f"Os valores do dia {dia} foram alterados com sucesso!")
+
+
     elif escolha_01 == "3" or escolha_01 == "Exibir Balanço Diário":
-        print ("2")
+        print ("Deseja exibir o Balanço Diário?")
+        escolha_04 = str(input("[S/N]"))
+        if escolha_04 == "N":
+            break
+        elif escolha_04 == "S":
+            dia = int(input("Digite o dia do mês (1 até 30): "))
+            if dia >= 1 and dia <= 30:
+                dia_local = dia - 1
+                print (f"O saldo do dia {dia} é R$: {(ganhos_fixos[dia_local] - despesas_fixas[dia_local])}, foi realizado aporte em aposentadoria no valor de: R$ {aportes_aposentadoria[dia_local]}, aporte em investimento no valor de: R$ {aportes_investimentos[dia_local]}")
+        else:
+                 print ("Opção Inválida")
+
     elif escolha_01 == "4" or escolha_01 == "Exibir Balanço Semanal":
         print ("3")
     elif escolha_01 == "5" or escolha_01 == "Exibir Balançi Mensal":
