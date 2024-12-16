@@ -117,7 +117,35 @@ while True:
                  print ("Opção Inválida")
 
     elif escolha_01 == "4" or escolha_01 == "Exibir Balanço Mensal":
-        print ("3")
+
+        print ("---" * 25)
+        mes = int(input("Digite o mês (1 até 12): ")) - 1
+        print ("---" * 25)
+
+
+        total_ganho_mes = 0
+        for ganho in ganhos_fixos[mes]:
+            total_ganho_mes += ganho
+        print (f"O total de ganhos no mês {mes + 1} foi {total_ganho_mes}")
+
+        total_despesa_mes = 0
+
+        for despesa in despesas_fixas[mes]:
+            total_despesa_mes += despesa
+        print (f"O total de despesas no mês {mes + 1} foi de {total_despesa_mes}")
+
+        print (f"O saldo do mês {mes + 1} foi {(total_ganho_mes - total_despesa_mes)}")
+
+        total_aposentadoria_mes = 0
+        for aposentadoria in aportes_aposentadoria[mes]:
+            total_aposentadoria_mes += aposentadoria
+        print (f"A somatoria dos valores de aporte em aposentadoria foi de: {total_aposentadoria_mes}")
+
+
+        total_investimento_mes = 0
+        for investimento in aportes_investimentos[mes]:
+            total_investimento_mes += investimento
+        print (f"O total dos aportes em investimentos é: {total_investimento_mes}")
 
     elif escolha_01 == "5" or escolha_01 == "Encerrar":
         print ("Encerrando o programa!")
