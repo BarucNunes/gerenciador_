@@ -20,9 +20,8 @@ while True:
     print (" 1 - Adicionar Balanço")
     print (" 2 - Alterar Balanço")
     print (" 3 - Exibir Balanço Diário")   
-    print (" 4 - Exibir Balanço Semanal")
-    print (" 5 - Exibir Balanço Mensal")
-    print (" 6 - Encerrar")
+    print (" 4 - Exibir Balanço Mensal")
+    print (" 5 - Encerrar")
     print ("---" * 25) 
     escolha_01 = str(input("Digite o nome ou número corresponde a opção:"))
 
@@ -113,15 +112,14 @@ while True:
             print ("---" * 25)
             dia = int(input("Digite o dia (1 até 30): ")) - 1
 
-            print (f"Os valores do mês {mes + 1} e do dia {dia + 1} é R$: {(ganhos_fixos[mes][dia] - despesas_fixas[mes][dia])}, foi realizado aporte em aposentadoria no valor de: R$ {aportes_aposentadoria[mes][dia]}, aporte em investimento no valor de: R$ {aportes_investimentos[mes][dia]}")
+            print (f"O saldo do mês {mes + 1} no dia {dia + 1} é R$: {(ganhos_fixos[mes][dia] - despesas_fixas[mes][dia])}, O valor de ganho foi {ganhos_fixos[mes][dia]}, O valor de despesa foi {despesas_fixas[mes][dia]}. Além disso foi realizado aporte em aposentadoria no valor de: R$ {aportes_aposentadoria[mes][dia]}, aporte em investimento no valor de: R$ {aportes_investimentos[mes][dia]}")
         else:
                  print ("Opção Inválida")
 
-    elif escolha_01 == "4" or escolha_01 == "Exibir Balanço Semanal":
+    elif escolha_01 == "4" or escolha_01 == "Exibir Balanço Mensal":
         print ("3")
-    elif escolha_01 == "5" or escolha_01 == "Exibir Balanço Mensal":
-        print ("4")
-    elif escolha_01 == "6" or escolha_01 == "Encerrar":
+
+    elif escolha_01 == "5" or escolha_01 == "Encerrar":
         print ("Encerrando o programa!")
         break
     else:
